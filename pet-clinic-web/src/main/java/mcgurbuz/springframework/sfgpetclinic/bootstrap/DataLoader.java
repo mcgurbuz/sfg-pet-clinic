@@ -3,7 +3,6 @@ package mcgurbuz.springframework.sfgpetclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import mcgurbuz.springframework.sfgpetclinic.services.*;
-import mcgurbuz.springframework.sfgpetclinic.services.map.*;
 import mcgurbuz.springframework.sfgpetclinic.model.*;
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -11,9 +10,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader(){
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService){
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
 
