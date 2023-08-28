@@ -3,6 +3,8 @@ package mcgurbuz.springframework.sfgpetclinic.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="pets")
@@ -19,6 +21,17 @@ public class Pet extends BaseEntity{
 
     @Column(name="birth_date")
     private LocalDate birthDate;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "pet")
+    private Set<Visit> vists = new HashSet<>();
+
+    public Set<Visit> getVists() {
+        return vists;
+    }
+
+    public void setVists(Set<Visit> vists) {
+        this.vists = vists;
+    }
 
     public String getName() {
         return name;
