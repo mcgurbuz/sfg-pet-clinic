@@ -2,12 +2,14 @@ package mcgurbuz.springframework.sfgpetclinic.services.map;
 
 import mcgurbuz.springframework.sfgpetclinic.model.Vet;
 import mcgurbuz.springframework.sfgpetclinic.services.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import mcgurbuz.springframework.sfgpetclinic.services.*;
 import mcgurbuz.springframework.sfgpetclinic.model.*;
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class VetMapService extends AbstractMapService<Vet,Long> implements VetService {
 
     private final SpecialityService specialityService;
